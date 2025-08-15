@@ -1,4 +1,5 @@
 #include <iostream>
+#include <vector>
 #include <GLFW/glfw3.h>
 #include <cmath>
 
@@ -6,9 +7,7 @@ float screenWidth = 600.0f;
 float screenHeight = 800.0f;
 
 GLFWwindow* StartGLFW();
-void draw_circle(float centerX, float centerY, float radius, int res) {
-  
-}
+void draw_circle(float centerX, float centerY, float radius, int res);
 
 int main() {
   GLFWwindow* window = StartGLFW();
@@ -17,8 +16,11 @@ int main() {
   float radius = 50.0f;
   int res = 100;
 
+  std::vector<float> position = {400.0f, 300.0f};
+
   while (!glfwWindowShouldClose(window)) {
-    draw_circle(centerX, centerY, radius, res);
+    draw_circle(position[0], position[1], radius, res);
+    position[1] -= 1.0f;
 
     glfwSwapBuffers(window);
     glfwPollEvents();
